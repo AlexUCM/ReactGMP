@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
+  width: 160px;
   font-size: 18px;
   border: none;
   border-radius: 4px;
@@ -18,7 +19,6 @@ const StyledButton = styled.button`
   ${(props) =>
     props.add &&
     `
-    width: 160px;
     padding: 10px 0;
     background-color: #55555585;
     color: #f65261;
@@ -31,6 +31,23 @@ const StyledButton = styled.button`
     padding: 16px 0;
     background-color: #f65261;
     color: #fff;
+  `}
+
+  ${(props) =>
+    props.confirm &&
+    `
+    padding: 12px 0;
+    background-color: #f65261;
+    color: #fff;
+  `}
+
+  ${(props) =>
+    props.reset &&
+    `
+    padding: 11px 0;
+    background-color: transparent;
+    border: 1px solid #f65261;
+    color: #f65261;
   `}
 `;
 

@@ -41,14 +41,18 @@ const Input = styled.input`
   }
 `;
 
-export const Search = () => (
-  <Container>
-    <Title>FIND YOUR MOVIE</Title>
-    <Form>
-      <Input type='text' placeholder='What do you want to watch?' />
-      <Button search align='flex-end'>
-        SEARCH
-      </Button>
-    </Form>
-  </Container>
-);
+export const Search = () => {
+  return (
+    <>
+      <Container>
+        <Title>FIND YOUR MOVIE</Title>
+        <Form>
+          <Input type='text' placeholder='What do you want to watch?' />
+          <Button search align='flex-end'>
+            SEARCH
+          </Button>
+        </Form>
+      </Container>
+    </>
+  );
+};

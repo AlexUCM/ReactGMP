@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MovieCard } from './MovieCard';
 import { Navbar } from './Navbar';
+import { EditForm } from './EditForm';
+import { DeleteForm } from './DeleteForm';
 import movies from '../mock_data.json';
 import styled from 'styled-components';
 
@@ -32,30 +34,70 @@ const ResultNumber = styled.span`
   margin: 0 5px 0 0;
 `;
 
-export const MoviesList = () => (
-  <Container>
-    <Section>
-      <Navbar />
-      <ResutCount>
-        <ResultNumber>{movies.data.length}</ResultNumber>
-        <span>movies found</span>
-      </ResutCount>
-      <List>
-        {movies.data.map(
-          ({ poster_path, genres, title, release_date, vote_average, id }) => (
+export const MoviesList = () => {
+  const [{ isOpen, status, movieData }, setMovie] = useState({
+    isOpen: false,
+    status: null,
+    movieData: {},
+  });
+
+  const onCloseModal = (event) => {
+    if (event.target.dataset.close) {
+      setMovie((state) => ({ ...state, isOpen: false }));
+    }
+  };
+
+  const getMovie = (id, status, isOpen) => {
+    setMovie({
+      status,
+      isOpen,
+      movieData: movies.data.find((movie) => movie.id === id),
+    });
+  };
+
+  return (
+    <Container>
+      <Section>
+        <Navbar />
+        <ResutCount>
+          <ResultNumber>{movies.data.length}</ResultNumber>
+          <span>movies found</span>
+        </ResutCount>
+        <List>
+          {movies.data.map((movie) => (
             <MovieCard
-              poster={poster_path}
+              poster={movie.poster_path}
               genres={
-                genres.length === 2 ? genres.join(' & ') : genres.join(', ')
+                movie.genres.length === 2
+                  ? movie.genres.join(' & ')
+                  : movie.genres.join(', ')
               }
-              title={title}
-              date={release_date.slice(0, 4)}
-              vote={vote_average}
-              key={id}
+              title={movie.title}
+              date={movie.release_date.slice(0, 4)}
+              vote={movie.vote_average}
+              overview={movie.overview}
+              runtime={movie.runtime}
+              id={movie.id}
+              key={movie.id}
+              getMovie={getMovie}
             />
-          )
-        )}
-      </List>
-    </Section>
-  </Container>
-);
+          ))}
+          {status === 'Edit' && isOpen && (
+            <EditForm
+              onClose={onCloseModal}
+              genres={movieData.genres.map((genre) => genre.toLowerCase())}
+              title={movieData.title}
+              id={movieData.id}
+              release={movieData.release_date}
+              overview={movieData.overview}
+              runtime={movieData.runtime}
+            />
+          )}
+          {status === 'Delete' && isOpen && (
+            <DeleteForm onClose={onCloseModal} />
+          )}
+        </List>
+      </Section>
+    </Container>
+  );
+};

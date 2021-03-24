@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FallbackImage } from './FallbackImage';
+import { CardMenu } from './CardMenu';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -11,26 +12,14 @@ const Container = styled.div`
   background-color: #fff;
 `;
 
-const ResultsFilter = styled.div`
+const Menu = styled.div`
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 12px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #232323;
-`;
 
-const Dot = styled.div`
-  margin: 2px 0;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: #fff;
+  ${(props) =>
+    props.isOpen &&
+    `
+    display: block;
+  `}
 `;
 
 const Poster = styled.div`
@@ -39,8 +28,8 @@ const Poster = styled.div`
   overflow: hidden;
   cursor: pointer;
 
-  &:hover ${ResultsFilter} {
-    display: flex;
+  &:hover ${Menu} {
+    display: block;
   }
 `;
 
@@ -55,8 +44,6 @@ const MovieInfo = styled.div`
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 `;
 
 const MovieTitle = styled.h2`
@@ -64,6 +51,7 @@ const MovieTitle = styled.h2`
   font-size: 18px;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   color: #ffffff7a;
 `;
 
@@ -71,6 +59,7 @@ const MovieGenres = styled.p`
   font-size: 14px;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   color: #555;
 `;
 
@@ -86,16 +75,24 @@ const DateString = styled.span`
   border-radius: 5px;
 `;
 
-export const MovieCard = ({ title, genres, date, poster }) => {
+export const MovieCard = ({ title, genres, date, poster, id, getMovie }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen((state) => !state);
+  const onOpenModal = (event) => {
+    getMovie(id, event.target.innerHTML, true);
+    setIsOpen((state) => !state);
+  };
   return (
     <Container>
       <Poster>
         <FallbackImage src={poster} />
-        <ResultsFilter>
-          <Dot />
-          <Dot />
-          <Dot />
-        </ResultsFilter>
+        <Menu isOpen={isOpen}>
+          <CardMenu
+            isOpen={isOpen}
+            onOpenModal={onOpenModal}
+            toggleMenu={toggleMenu}
+          />
+        </Menu>
       </Poster>
       <Movie>
         <MovieInfo>
@@ -115,4 +112,6 @@ MovieCard.propTypes = {
   genres: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  getMovie: PropTypes.func.isRequired,
 };
