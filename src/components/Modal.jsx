@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -42,29 +42,23 @@ const Title = styled.h1`
   color: #fff;
 `;
 
-export class Modal extends PureComponent {
-  componentDidMount() {
+export const Modal = ({ title, onClose, children }) => {
+  useEffect(() => {
     document.body.style.overflow = 'hidden';
-  }
+    return () => (document.body.style.overflow = 'unset');
+  }, []);
 
-  componentWillUnmount() {
-    document.body.style.overflow = 'unset';
-  }
-
-  render() {
-    const { title, onClose, children } = this.props;
-    return ReactDOM.createPortal(
-      <Backdrop onClick={onClose} data-close>
-        <Window>
-          <CloseBtn data-close>&#215;</CloseBtn>
-          <Title>{title}</Title>
-          {children}
-        </Window>
-      </Backdrop>,
-      document.querySelector('#modal-root')
-    );
-  }
-}
+  return ReactDOM.createPortal(
+    <Backdrop onClick={onClose} data-close>
+      <Window>
+        <CloseBtn data-close>&#215;</CloseBtn>
+        <Title>{title}</Title>
+        {children}
+      </Window>
+    </Backdrop>,
+    document.querySelector('#modal-root')
+  );
+};
 
 Modal.propTypes = {
   title: PropTypes.string.isRequired,

@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
-import { Button } from './Button';
-import { AddForm } from './AddForm';
+import React from 'react';
 import { Search } from './Search';
+import { MovieDetails } from './MovieDetails';
 import styled from 'styled-components';
 import background from '../images/movies-background.jpg';
 
@@ -28,14 +27,14 @@ const Shadow = styled.div`
 
 const Section = styled.div`
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  position: relative;
   max-width: 1280px;
   margin: 0 auto;
   padding: 18px 0;
 `;
 
 const Logo = styled.span`
+  position: absolute;
   font-size: 22px;
   line-height: 22px;
   color: #f65261;
@@ -43,43 +42,20 @@ const Logo = styled.span`
   z-index: 50;
 `;
 
-export class Header extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: false };
-    this.onOpenModal = this.onOpenModal.bind(this);
-    this.onCloseModal = this.onCloseModal.bind(this);
-  }
-
-  onOpenModal() {
-    this.setState({ isOpen: true });
-  }
-
-  onCloseModal(event) {
-    if (event.target.dataset.close) {
-      this.setState({ isOpen: false });
-    }
-  }
-
-  render() {
-    const { isOpen } = this.state;
-    return (
-      <>
-        <Container>
-          <Shadow />
-          <Section>
-            <Logo>
-              <b>netflix</b>
-              roulette
-            </Logo>
-            <Button add align='flex-start' onClick={this.onOpenModal}>
-              + ADD MOVIE
-            </Button>
-          </Section>
-          <Search />
-        </Container>
-        {isOpen && <AddForm onClose={this.onCloseModal} />}
-      </>
-    );
-  }
-}
+export const Header = () => {
+  return (
+    <>
+      <Container>
+        <Shadow />
+        <Section>
+          <Logo>
+            <b>netflix</b>
+            roulette
+          </Logo>
+          {/* <Search /> */}
+          <MovieDetails />
+        </Section>
+      </Container>
+    </>
+  );
+};
