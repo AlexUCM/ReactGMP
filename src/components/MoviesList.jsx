@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { MovieCard } from './MovieCard';
 import { Navbar } from './Navbar';
 import { EditForm } from './EditForm';
@@ -41,11 +41,14 @@ export const MoviesList = () => {
     movieData: {},
   });
 
-  const onCloseModal = (event) => {
-    if (event.target.dataset.close) {
-      setMovie((state) => ({ ...state, isOpen: false }));
-    }
-  };
+  const onCloseModal = useCallback(
+    (event) => {
+      if (event.target.dataset.close) {
+        setMovie((state) => ({ ...state, isOpen: false }));
+      }
+    },
+    [isOpen]
+  );
 
   const getMovie = (id, status, isOpen) => {
     setMovie({

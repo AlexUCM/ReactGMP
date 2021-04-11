@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useClickOutside } from '../hooks/useClickOutside';
 import styled from 'styled-components';
 
 const StyledSelect = styled.div`
@@ -33,7 +34,6 @@ const Dropdown = styled.div`
   display: none;
   right: 0;
   top: 26px;
-  padding: 8px 0;
   width: 174px;
   background-color: #232323;
   border: 1px solid #424242;
@@ -59,12 +59,18 @@ const SortValue = styled.p`
 `;
 
 export const Select = () => {
+  const ref = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('RELEASE DATE');
   const sortingValues = ['RELEASE DATE', 'RATING'];
+  useClickOutside(ref, () => isOpen && setIsOpen(false));
 
   return (
-    <StyledSelect onClick={() => setIsOpen((state) => !state)} isOpen={isOpen}>
+    <StyledSelect
+      onClick={() => setIsOpen((state) => !state)}
+      isOpen={isOpen}
+      ref={ref}
+    >
       {value}
       <Dropdown
         onClick={(event) => setValue(event.target.textContent)}

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useClickOutside } from '../hooks/useClickOutside';
 import styled from 'styled-components';
 
 const Menu = styled.div`
@@ -55,22 +56,26 @@ const Close = styled.div`
   font-size: 24px;
 `;
 
-export const CardMenu = ({ isOpen, toggleMenu, onOpenModal }) => (
-  <>
-    <Menu onClick={toggleMenu}>
-      <Dot />
-      <Dot />
-      <Dot />
-    </Menu>
-    {isOpen && (
-      <Dropdown>
-        <Close onClick={toggleMenu}>&#215;</Close>
-        <Item onClick={onOpenModal}>Edit</Item>
-        <Item onClick={onOpenModal}>Delete</Item>
-      </Dropdown>
-    )}
-  </>
-);
+export const CardMenu = ({ isOpen, toggleMenu, onOpenModal }) => {
+  const ref = useRef();
+  useClickOutside(ref, () => isOpen && toggleMenu());
+  return (
+    <>
+      <Menu onClick={toggleMenu}>
+        <Dot />
+        <Dot />
+        <Dot />
+      </Menu>
+      {isOpen && (
+        <Dropdown ref={ref}>
+          <Close onClick={toggleMenu}>&#215;</Close>
+          <Item onClick={onOpenModal}>Edit</Item>
+          <Item onClick={onOpenModal}>Delete</Item>
+        </Dropdown>
+      )}
+    </>
+  );
+};
 
 CardMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,

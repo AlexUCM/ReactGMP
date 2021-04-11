@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './Button';
 import { FormSelect } from './FormSelect';
@@ -54,101 +54,92 @@ const Buttons = styled.div`
   }
 `;
 
-export class AddForm extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      release: '',
-      overview: '',
-      runtime: '',
-      genres: [],
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+export const AddForm = ({ onClose }) => {
+  const [state, setState] = useState({
+    title: '',
+    release: '',
+    overview: '',
+    runtime: '',
+    genres: [],
+  });
 
-  handleInputChange(event) {
-    const { genres } = this.state;
+  const { title, release, overview, runtime, genres } = state;
+
+  const handleInputChange = (event) => {
     const { value, name, type, checked } = event.target;
     if (type !== 'checkbox') {
-      this.setState({ [name]: value });
+      setState({ ...state, [name]: value });
     } else if (checked) {
       if (genres.includes(value)) return;
-      this.setState((prevState) => ({ genres: [...prevState.genres, value] }));
+      setState((state) => ({ ...state, genres: [...state.genres, value] }));
     } else {
-      this.setState((prevState) => ({
-        genres: prevState.genres.filter((genre) => genre !== value),
+      setState((state) => ({
+        ...state,
+        genres: state.genres.filter((genre) => genre !== value),
       }));
     }
-  }
+  };
 
-  render() {
-    const { title, release, overview, runtime, genres } = this.state;
-    const { onClose } = this.props;
-    return (
-      <Modal title='ADD MOVIE' onClose={onClose}>
-        <Form>
-          <Label>
-            TITLE
-            <Input
-              name='title'
-              type='text'
-              value={title}
-              placeholder='Title here'
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <Label>
-            RELEASE DATE
-            <Input
-              name='release'
-              type='date'
-              value={release}
-              style={{ color: release ? '#fff' : '' }}
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <FormSelect
-            value={genres.join(', ')}
-            onChange={this.handleInputChange}
+  return (
+    <Modal title='ADD MOVIE' onClose={onClose}>
+      <Form>
+        <Label>
+          TITLE
+          <Input
+            name='title'
+            type='text'
+            value={title}
+            placeholder='Title here'
+            onChange={handleInputChange}
           />
-          <br />
-          <Label>
-            OVERVIEW
-            <Input
-              name='overview'
-              type='text'
-              value={overview}
-              placeholder='Overview here'
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <Label>
-            RUNTIME
-            <Input
-              name='runtime'
-              type='text'
-              value={runtime}
-              placeholder='Runtime here'
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <Buttons>
-            <Button type='reset' reset>
-              RESET
-            </Button>
-            <Button type='submit' confirm>
-              SUBMIT
-            </Button>
-          </Buttons>
-        </Form>
-      </Modal>
-    );
-  }
-}
+        </Label>
+        <br />
+        <Label>
+          RELEASE DATE
+          <Input
+            name='release'
+            type='date'
+            value={release}
+            style={{ color: release ? '#fff' : '' }}
+            onChange={handleInputChange}
+          />
+        </Label>
+        <br />
+        <FormSelect value={genres.join(', ')} onChange={handleInputChange} />
+        <br />
+        <Label>
+          OVERVIEW
+          <Input
+            name='overview'
+            type='text'
+            value={overview}
+            placeholder='Overview here'
+            onChange={handleInputChange}
+          />
+        </Label>
+        <br />
+        <Label>
+          RUNTIME
+          <Input
+            name='runtime'
+            type='text'
+            value={runtime}
+            placeholder='Runtime here'
+            onChange={handleInputChange}
+          />
+        </Label>
+        <Buttons>
+          <Button type='reset' reset>
+            RESET
+          </Button>
+          <Button type='submit' confirm>
+            SUBMIT
+          </Button>
+        </Buttons>
+      </Form>
+    </Modal>
+  );
+};
 
 AddForm.propTypes = {
   onClose: PropTypes.func.isRequired,

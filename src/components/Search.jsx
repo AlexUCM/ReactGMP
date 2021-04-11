@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AddForm } from './AddForm';
 import { Button } from './Button';
 import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   min-height: 216px;
-  max-width: 1024px;
-  margin: 0 auto;
+`;
+
+const SearchField = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 `;
 
 const Title = styled.h1`
   font-size: 48px;
   font-weight: 400;
   color: #fff;
-  padding: 0 0 32px;
 `;
 
 const Form = styled.form`
   display: flex;
+  padding: 0 24px 0 0;
+  margin: 24px 0 0 0;
+  max-width: 1024px;
 `;
 
 const Input = styled.input`
@@ -42,17 +50,33 @@ const Input = styled.input`
 `;
 
 export const Search = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpenModal = () => {
+    setIsOpen(true);
+  };
+
+  const onCloseModal = (event) => {
+    if (event.target.dataset.close) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
       <Container>
-        <Title>FIND YOUR MOVIE</Title>
-        <Form>
-          <Input type='text' placeholder='What do you want to watch?' />
-          <Button search align='flex-end'>
-            SEARCH
-          </Button>
-        </Form>
+        <Button add align='flex-end' onClick={onOpenModal}>
+          + ADD MOVIE
+        </Button>
+        <SearchField>
+          <Title>FIND YOUR MOVIE</Title>
+          <Form>
+            <Input type='text' placeholder='What do you want to watch?' />
+            <Button search>SEARCH</Button>
+          </Form>
+        </SearchField>
       </Container>
+      {isOpen && <AddForm onClose={onCloseModal} />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './Button';
 import { FormSelect } from './FormSelect';
@@ -56,102 +56,93 @@ const Buttons = styled.div`
   }
 `;
 
-export class EditForm extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: props.title,
-      id: props.id,
-      release: props.release,
-      overview: props.overview,
-      runtime: props.runtime,
-      genres: props.genres,
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+export const EditForm = (props) => {
+  const [state, setState] = useState({
+    title: props.title,
+    id: props.id,
+    release: props.release,
+    overview: props.overview,
+    runtime: props.runtime,
+    genres: props.genres,
+  });
 
-  handleInputChange(event) {
-    const { genres } = this.state;
+  const { title, id, release, overview, runtime, genres } = state;
+
+  const handleInputChange = (event) => {
     const { value, name, type, checked } = event.target;
     if (type !== 'checkbox') {
-      this.setState({ [name]: value });
+      setState({ ...state, [name]: value });
     } else if (checked) {
       if (genres.includes(value)) return;
-      this.setState((prevState) => ({ genres: [...prevState.genres, value] }));
+      setState((state) => ({ ...state, genres: [...state.genres, value] }));
     } else {
-      this.setState((prevState) => ({
-        genres: prevState.genres.filter((genre) => genre !== value),
+      setState((state) => ({
+        ...state,
+        genres: state.genres.filter((genre) => genre !== value),
       }));
     }
-  }
+  };
 
-  render() {
-    const { onClose } = this.props;
-    const { id, title, release, overview, runtime, genres } = this.state;
-    return (
-      <Modal title='EDIT MOVIE' onClose={onClose}>
-        <Form>
-          <Label>
-            MOVIE ID
-            <Input name='id' type='number' value={id} disabled />
-          </Label>
-          <Label>
-            TITLE
-            <Input
-              name='title'
-              type='text'
-              value={title}
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <Label>
-            RELEASE DATE
-            <Input
-              name='release'
-              type='date'
-              value={release}
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <FormSelect
-            value={genres.join(', ')}
-            onChange={this.handleInputChange}
+  return (
+    <Modal title='EDIT MOVIE' onClose={props.onClose}>
+      <Form>
+        <Label>
+          MOVIE ID
+          <Input name='id' type='number' value={id} disabled />
+        </Label>
+        <Label>
+          TITLE
+          <Input
+            name='title'
+            type='text'
+            value={title}
+            onChange={handleInputChange}
           />
-          <br />
-          <Label>
-            OVERVIEW
-            <Input
-              name='overview'
-              type='text'
-              value={overview}
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <br />
-          <Label>
-            RUNTIME
-            <Input
-              name='runtime'
-              type='text'
-              value={runtime}
-              onChange={this.handleInputChange}
-            />
-          </Label>
-          <Buttons>
-            <Button type='reset' reset>
-              RESET
-            </Button>
-            <Button type='submit' confirm>
-              SAVE
-            </Button>
-          </Buttons>
-        </Form>
-      </Modal>
-    );
-  }
-}
+        </Label>
+        <br />
+        <Label>
+          RELEASE DATE
+          <Input
+            name='release'
+            type='date'
+            value={release}
+            onChange={handleInputChange}
+          />
+        </Label>
+        <br />
+        <FormSelect value={genres.join(', ')} onChange={handleInputChange} />
+        <br />
+        <Label>
+          OVERVIEW
+          <Input
+            name='overview'
+            type='text'
+            value={overview}
+            onChange={handleInputChange}
+          />
+        </Label>
+        <br />
+        <Label>
+          RUNTIME
+          <Input
+            name='runtime'
+            type='text'
+            value={runtime}
+            onChange={handleInputChange}
+          />
+        </Label>
+        <Buttons>
+          <Button type='reset' reset>
+            RESET
+          </Button>
+          <Button type='submit' confirm>
+            SAVE
+          </Button>
+        </Buttons>
+      </Form>
+    </Modal>
+  );
+};
 
 EditForm.propTypes = {
   id: PropTypes.number.isRequired,
