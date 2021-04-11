@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Select } from './Select';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -21,26 +22,11 @@ const Container = styled.div`
 
 const Sort = styled.div`
   display: flex;
+  align-items: flex-start;
 `;
 
 const SortBy = styled.span`
   color: #ffffff80;
-`;
-
-const ReleaseDate = styled.div`
-  height: 24px;
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 24px;
-  color: #fff;
-  cursor: pointer;
-
-  &:after {
-    content: '\\25BC';
-    margin: 0 0 0 10px;
-    font-size: 12px;
-    color: #f65261;
-  }
 `;
 
 const Genres = styled.div`
@@ -96,7 +82,7 @@ export const Navbar = () => {
       </Genres>
       <Sort>
         <SortBy>SORT BY</SortBy>
-        <ReleaseDate>RELEASE DATE</ReleaseDate>
+        <Select />
       </Sort>
     </Container>
   );
