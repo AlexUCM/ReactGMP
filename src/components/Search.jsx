@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddForm } from './AddForm';
 import { Button } from './Button';
+import fetchMovies from '../redux/actions/fetchMovies';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -50,16 +52,20 @@ const Input = styled.input`
 `;
 
 export const Search = () => {
+  const dispatch = useDispatch();
+
+  const [value, setValue] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
-  const onOpenModal = () => {
-    setIsOpen(true);
-  };
+  const { sortBy, filter } = useSelector((state) => state.moviesData);
 
-  const onCloseModal = (event) => {
-    if (event.target.dataset.close) {
-      setIsOpen(false);
-    }
+  const handleChange = (event) => setValue(event.target.value);
+  const onOpenModal = () => setIsOpen(true);
+  const onCloseModal = (event) =>
+    event.target.dataset.close && setIsOpen(false);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    dispatch(fetchMovies({ sortBy, filter, search: value }));
   };
 
   return (
@@ -70,9 +76,16 @@ export const Search = () => {
         </Button>
         <SearchField>
           <Title>FIND YOUR MOVIE</Title>
-          <Form>
-            <Input type='text' placeholder='What do you want to watch?' />
-            <Button search>SEARCH</Button>
+          <Form onSubmit={onSubmit}>
+            <Input
+              type='text'
+              placeholder='What do you want to watch?'
+              onChange={handleChange}
+              value={value}
+            />
+            <Button type='submit' search>
+              SEARCH
+            </Button>
           </Form>
         </SearchField>
       </Container>

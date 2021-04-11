@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useClickOutside } from '../hooks/useClickOutside';
 import styled from 'styled-components';
 
@@ -58,11 +59,13 @@ const SortValue = styled.p`
   `}
 `;
 
-export const Select = () => {
-  const ref = useRef();
+export const Select = ({ value, toggleSortValue }) => {
+  const sortingValues = { RELEASE_DATE: 'RELEASE DATE', RATING: 'RATING' };
+
+  const ref = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState('RELEASE DATE');
-  const sortingValues = ['RELEASE DATE', 'RATING'];
+
   useClickOutside(ref, () => isOpen && setIsOpen(false));
 
   return (
@@ -72,11 +75,8 @@ export const Select = () => {
       ref={ref}
     >
       {value}
-      <Dropdown
-        onClick={(event) => setValue(event.target.textContent)}
-        isOpen={isOpen}
-      >
-        {sortingValues.map((val) => {
+      <Dropdown onClick={toggleSortValue} isOpen={isOpen}>
+        {Object.values(sortingValues).map((val) => {
           return (
             <SortValue key={val} isActive={val === value}>
               {val}
@@ -86,4 +86,9 @@ export const Select = () => {
       </Dropdown>
     </StyledSelect>
   );
+};
+
+Select.propTypes = {
+  value: PropTypes.string.isRequired,
+  toggleSortValue: PropTypes.func.isRequired,
 };

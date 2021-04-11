@@ -52,10 +52,14 @@ const StyledButton = styled.button`
 `;
 
 export const Button = (props) => (
-  <StyledButton {...props}>{props.children}</StyledButton>
+  <StyledButton data-close={props.isClose} onclick={props.onclick} {...props}>
+    {props.children}
+  </StyledButton>
 );
 
 Button.propTypes = {
+  isClose: PropTypes.bool,
+  onClick: PropTypes.func,
   align: PropTypes.string,
   add: PropTypes.bool,
   search: PropTypes.bool,
