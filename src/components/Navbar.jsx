@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Select } from './Select';
 import styled from 'styled-components';
 
@@ -60,19 +61,29 @@ const GenreItem = styled.div`
   `}
 `;
 
-const genres = ['all', 'documentary', 'comedy', 'horror', 'crime'];
+export const Navbar = ({
+  genreValue,
+  sortValue,
+  toggleSortValue,
+  handleMenu,
+}) => {
+  const navGenres = {
+    all: 'all',
+    documentary: 'documentary',
+    comedy: 'comedy',
+    horror: 'horror',
+    crime: 'crime',
+  };
 
-export const Navbar = () => {
-  const [active, setActive] = useState(0);
   return (
     <Container>
       <Genres>
-        {genres.map((genre, i) => {
-          const isActive = active === i;
+        {Object.values(navGenres).map((genre) => {
+          const isActive = genreValue === genre;
           return (
             <GenreItem
               isActive={isActive}
-              onClick={() => setActive(i)}
+              onClick={() => handleMenu(genre)}
               key={genre}
             >
               {genre}
@@ -82,8 +93,15 @@ export const Navbar = () => {
       </Genres>
       <Sort>
         <SortBy>SORT BY</SortBy>
-        <Select />
+        <Select value={sortValue} toggleSortValue={toggleSortValue} />
       </Sort>
     </Container>
   );
+};
+
+Navbar.propTypes = {
+  genreValue: PropTypes.string.isRequired,
+  sortValue: PropTypes.string.isRequired,
+  toggleSortValue: PropTypes.func.isRequired,
+  handleMenu: PropTypes.func.isRequired,
 };

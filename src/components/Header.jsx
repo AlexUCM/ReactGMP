@@ -52,8 +52,8 @@ export const Header = () => {
             <b>netflix</b>
             roulette
           </Logo>
-          {/* <Search /> */}
-          <MovieDetails />
+          <Search />
+          {/* <MovieDetails /> */}
         </Section>
       </Container>
     </>

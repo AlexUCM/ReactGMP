@@ -1,9 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MovieCard } from './MovieCard';
 import { Navbar } from './Navbar';
 import { EditForm } from './EditForm';
 import { DeleteForm } from './DeleteForm';
-import movies from '../mock_data.json';
+import { ScrollToTop } from './ScrollToTop';
+import fetchMovies from '../redux/actions/fetchMovies';
+import fetchMovie from '../redux/actions/fetchMovie';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -34,19 +37,46 @@ const ResultNumber = styled.span`
   margin: 0 5px 0 0;
 `;
 
+//
+
+export const getSortQuery = (str) => {
+  switch (str) {
+    case 'RELEASE DATE':
+      return 'release_date';
+    case 'RATING':
+      return 'vote_average';
+    default:
+      return '';
+  }
+};
+
 export const MoviesList = () => {
+  const navGenres = {
+    all: 'all',
+    documentary: 'documentary',
+    comedy: 'comedy',
+    horror: 'horror',
+    crime: 'crime',
+  };
+
+  const sortingValues = { RELEASE_DATE: 'RELEASE DATE', RATING: 'RATING' };
+
+  const dispatch = useDispatch();
+  const [genreValue, setGenreValue] = useState(navGenres.all);
+  const [sortValue, setSortValue] = useState(sortingValues.RELEASE_DATE);
+  const { movies, search } = useSelector((state) => state.moviesData);
   const [{ isOpen, status, movieData }, setMovie] = useState({
     isOpen: false,
     status: null,
     movieData: {},
   });
 
+  const toggleSortValue = (event) => setSortValue(event.target.textContent);
+  const handleMenu = (genre) => setGenreValue(genre);
   const onCloseModal = useCallback(
-    (event) => {
-      if (event.target.dataset.close) {
-        setMovie((state) => ({ ...state, isOpen: false }));
-      }
-    },
+    (event) =>
+      event.target.dataset.close &&
+      setMovie((state) => ({ ...state, isOpen: false })),
     [isOpen]
   );
 
@@ -54,27 +84,40 @@ export const MoviesList = () => {
     setMovie({
       status,
       isOpen,
-      movieData: movies.data.find((movie) => movie.id === id),
+      movieData: movies.find((movie) => movie.id === id),
     });
   };
+
+  useEffect(() => {
+    dispatch(
+      fetchMovies({
+        filter: genreValue === navGenres.all ? '' : genreValue,
+        sortBy: getSortQuery(sortValue),
+        search,
+      })
+    );
+  }, [genreValue, sortValue]);
+
+  const handleMovieDet = (id) => dispatch(fetchMovie(id));
 
   return (
     <Container>
       <Section>
-        <Navbar />
+        <Navbar
+          toggleSortValue={toggleSortValue}
+          handleMenu={handleMenu}
+          genreValue={genreValue}
+          sortValue={sortValue}
+        />
         <ResutCount>
-          <ResultNumber>{movies.data.length}</ResultNumber>
+          <ResultNumber>{movies.length}</ResultNumber>
           <span>movies found</span>
         </ResutCount>
         <List>
-          {movies.data.map((movie) => (
+          {movies.map((movie) => (
             <MovieCard
               poster={movie.poster_path}
-              genres={
-                movie.genres.length === 2
-                  ? movie.genres.join(' & ')
-                  : movie.genres.join(', ')
-              }
+              genres={movie.genres}
               title={movie.title}
               date={movie.release_date.slice(0, 4)}
               vote={movie.vote_average}
@@ -83,6 +126,7 @@ export const MoviesList = () => {
               id={movie.id}
               key={movie.id}
               getMovie={getMovie}
+              handleMovieDet={handleMovieDet}
             />
           ))}
           {status === 'Edit' && isOpen && (
@@ -91,16 +135,18 @@ export const MoviesList = () => {
               genres={movieData.genres.map((genre) => genre.toLowerCase())}
               title={movieData.title}
               id={movieData.id}
-              release={movieData.release_date}
+              release_date={movieData.release_date}
               overview={movieData.overview}
               runtime={movieData.runtime}
+              poster_path={movieData.poster_path}
             />
           )}
           {status === 'Delete' && isOpen && (
-            <DeleteForm onClose={onCloseModal} />
+            <DeleteForm id={movieData.id} onClose={onCloseModal} />
           )}
         </List>
       </Section>
+      <ScrollToTop />
     </Container>
   );
 };

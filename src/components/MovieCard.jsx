@@ -59,6 +59,7 @@ const MovieGenres = styled.p`
   font-size: 14px;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
   white-space: nowrap;
   color: #555;
 `;
@@ -75,16 +76,27 @@ const DateString = styled.span`
   border-radius: 5px;
 `;
 
-export const MovieCard = ({ title, genres, date, poster, id, getMovie }) => {
+export const MovieCard = ({
+  title,
+  genres,
+  date,
+  poster,
+  id,
+  getMovie,
+  handleMovieDet,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleMenu = () => setIsOpen((state) => !state);
+
   const onOpenModal = (event) => {
     getMovie(id, event.target.innerHTML, true);
     setIsOpen((state) => !state);
   };
+
   return (
     <Container>
-      <Poster>
+      <Poster onClick={() => handleMovieDet(id)}>
         <FallbackImage src={poster} />
         <Menu isOpen={isOpen}>
           <CardMenu
@@ -97,10 +109,12 @@ export const MovieCard = ({ title, genres, date, poster, id, getMovie }) => {
       <Movie>
         <MovieInfo>
           <MovieTitle>{title}</MovieTitle>
-          <MovieGenres>{genres}</MovieGenres>
+          <MovieGenres>
+            {genres.length === 2 ? genres.join(' & ') : genres.join(', ')}
+          </MovieGenres>
         </MovieInfo>
         <MovieDate>
-          <DateString>{date}</DateString>
+          <DateString>{date.slice(0, 4)}</DateString>
         </MovieDate>
       </Movie>
     </Container>
@@ -109,9 +123,10 @@ export const MovieCard = ({ title, genres, date, poster, id, getMovie }) => {
 
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
-  genres: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   date: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
   id: PropTypes.number.isRequired,
   getMovie: PropTypes.func.isRequired,
+  handleMovieDet: PropTypes.func.isRequired,
 };

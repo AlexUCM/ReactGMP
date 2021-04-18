@@ -1,8 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FallbackImage } from './FallbackImage';
-import movie from '../mock_movie.json';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -32,17 +32,27 @@ const NameAndRaiting = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: 62px;
+  font-size: 44px;
   font-weight: normal;
 `;
 
 const Raiting = styled.div`
   margin: 0 0 0 16px;
-  padding: 12px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #fff;
   border-radius: 50%;
   font-size: 28px;
   color: lightgreen;
+
+  ${(props) =>
+    props.rating &&
+    `
+    display: none;
+  `}
 `;
 
 const RuntimeAndRelease = styled.div`
@@ -50,10 +60,19 @@ const RuntimeAndRelease = styled.div`
   display: flex;
   font-size: 28px;
   color: #f65261;
+`;
 
-  & p {
-    margin: 0 32px 0 0;
-  }
+const ReleaseDate = styled.div`
+  margin: 0 32px 0 0;
+`;
+const Runtime = styled.div`
+  margin: 0 32px 0 0;
+
+  ${(props) =>
+    props.runtime &&
+    `
+    display: none;
+  `}
 `;
 
 const Overview = styled.p`
@@ -71,25 +90,29 @@ const SearchIcon = styled.div`
   cursor: pointer;
 `;
 
-export const MovieDetails = () => (
-  <Container>
-    <FallbackImage src={movie.poster_path} />
-    <Info>
-      <NameAndRaiting>
-        <Name>{movie.title}</Name>
-        <Raiting>{movie.vote_average}</Raiting>
-      </NameAndRaiting>
-      <RuntimeAndRelease>
-        <p>{movie.release_date.slice(0, 4)}</p>
-        <p>
-          {movie.runtime}
-          {' min'}
-        </p>
-      </RuntimeAndRelease>
-      <Overview>{movie.overview}</Overview>
-    </Info>
-    <SearchIcon>
-      <FontAwesomeIcon icon={faSearch} />
-    </SearchIcon>
-  </Container>
-);
+export const MovieDetails = () => {
+  const { movie } = useSelector((state) => state.movieData);
+
+  return (
+    <Container>
+      <FallbackImage src={movie.poster_path} />
+      <Info>
+        <NameAndRaiting>
+          <Name>{movie.title}</Name>
+          <Raiting rating={!movie.rating}>{movie.vote_average}</Raiting>
+        </NameAndRaiting>
+        <RuntimeAndRelease>
+          <ReleaseDate>{movie.release_date.slice(0, 4)}</ReleaseDate>
+          <Runtime runtime={!movie.runtime}>
+            {movie.runtime}
+            {' min'}
+          </Runtime>
+        </RuntimeAndRelease>
+        <Overview>{movie.overview}</Overview>
+      </Info>
+      <SearchIcon>
+        <FontAwesomeIcon icon={faSearch} />
+      </SearchIcon>
+    </Container>
+  );
+};
