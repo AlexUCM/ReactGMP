@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { useClickOutside } from '../hooks/useClickOutside';
 import styled from 'styled-components';
 
 const Backdrop = styled.div`
@@ -12,7 +13,7 @@ const Backdrop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000000e6;
   z-index: 20;
 `;
 
@@ -42,16 +43,18 @@ const Title = styled.h1`
   color: #fff;
 `;
 
-export const Modal = ({ title, onClose, children }) => {
+export const Modal = ({ title = '', onClose, children }) => {
+  const ref = useRef();
+  useClickOutside(ref, onClose);
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => (document.body.style.overflow = 'unset');
   }, []);
 
   return ReactDOM.createPortal(
-    <Backdrop onClick={onClose} data-close>
-      <Window>
-        <CloseBtn data-close>&#215;</CloseBtn>
+    <Backdrop>
+      <Window ref={ref}>
+        <CloseBtn onClick={() => onClose()}>&#215;</CloseBtn>
         <Title>{title}</Title>
         {children}
       </Window>
@@ -61,7 +64,7 @@ export const Modal = ({ title, onClose, children }) => {
 };
 
 Modal.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };

@@ -49,19 +49,50 @@ const StyledButton = styled.button`
     border: 1px solid #f65261;
     color: #f65261;
   `}
+
+  ${(props) =>
+    props.disabled &&
+    `
+    padding: 11px 0;
+    background-color: #55555585;
+    border: 1px solid #fff;
+    cursor: auto;
+  `}
 `;
 
-export const Button = (props) => (
-  <StyledButton data-close={props.isClose} onclick={props.onclick} {...props}>
-    {props.children}
+export const Button = ({
+  type = 'button',
+  onClick,
+  align,
+  add,
+  search,
+  confirm,
+  reset,
+  disabled,
+  children,
+}) => (
+  <StyledButton
+    type={type}
+    onClick={onClick}
+    align={align}
+    add={add}
+    search={search}
+    confirm={confirm}
+    reset={reset}
+    disabled={disabled}
+  >
+    {children}
   </StyledButton>
 );
 
 Button.propTypes = {
-  isClose: PropTypes.bool,
+  type: PropTypes.string,
   onClick: PropTypes.func,
   align: PropTypes.string,
   add: PropTypes.bool,
   search: PropTypes.bool,
+  confirm: PropTypes.bool,
+  reset: PropTypes.bool,
+  disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };

@@ -20,7 +20,10 @@ const Confirmation = styled.p`
 
 export const DeleteForm = ({ id, onClose }) => {
   const dispatch = useDispatch();
-  const onDelete = () => dispatch(deleteMovie(id));
+  const onDelete = () => {
+    dispatch(deleteMovie(id));
+    onClose();
+  };
   return (
     <Modal title='DELETE FORM' onClose={onClose}>
       <Container>

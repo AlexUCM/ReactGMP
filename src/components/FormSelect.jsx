@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useClickOutside } from '../hooks/useClickOutside';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -54,6 +55,7 @@ const Dropdown = styled.div`
   overflow-y: scroll;
   border-radius: 5px;
   background-color: #232323;
+  z-index: 50;
 
   ${({ isOpen }) =>
     isOpen &&
@@ -129,13 +131,15 @@ const genres = [
   'western',
 ];
 
-export const FormSelect = ({ value, onChange }) => {
+export const FormSelect = ({ name, value, onChange }) => {
+  const ref = useRef();
   const [isOpen, setIsOpen] = useState(false);
+  useClickOutside(ref, () => setIsOpen(false));
 
   return (
     <>
       <span>GENRE</span>
-      <Container>
+      <Container ref={ref}>
         <Select onClick={() => setIsOpen((state) => !state)}>
           <Value value={value}>{value || 'Select genre'}</Value>
           <Arrow isOpen={isOpen}>&#9660;</Arrow>
@@ -145,6 +149,7 @@ export const FormSelect = ({ value, onChange }) => {
             <InputWrapper key={genre}>
               <Input
                 id={genre}
+                name={name}
                 type='checkbox'
                 checked={value.split(', ').includes(genre)}
                 value={genre}
@@ -163,5 +168,6 @@ export const FormSelect = ({ value, onChange }) => {
 
 FormSelect.propTypes = {
   value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
