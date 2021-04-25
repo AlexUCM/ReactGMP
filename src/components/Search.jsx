@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { AddForm } from './AddForm';
 import { Button } from './Button';
 import { SuccessMessage } from './SuccessMessage';
-import fetchMovies from '../redux/actions/fetchMovies';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -53,7 +52,8 @@ const Input = styled.input`
 `;
 
 export const Search = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
+  const { query } = useParams();
 
   const [value, setValue] = useState('');
   const [{ isForm, isMessage }, setIsOpen] = useState({
@@ -61,15 +61,19 @@ export const Search = () => {
     isMessage: false,
   });
 
-  const { sortBy, filter } = useSelector((state) => state.moviesData);
-
   const handleChange = (event) => setValue(event.target.value);
   const onOpenModal = () => setIsOpen({ isForm: true, isMessage: false });
   const onCloseModal = (isMessage) => setIsOpen({ isForm: false, isMessage });
   const onSubmit = (event) => {
-    dispatch(fetchMovies({ sortBy, filter, search: value }));
+    if (value) {
+      history.push(`/search/${value}`);
+    } else {
+      history.push(`/`);
+    }
     event.preventDefault();
   };
+
+  useEffect(() => setValue(query), []);
 
   return (
     <>

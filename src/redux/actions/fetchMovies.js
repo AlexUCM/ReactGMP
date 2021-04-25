@@ -28,7 +28,7 @@ const fetchMovies = ({ sortBy = '', filter = '', search = '' }) => (
   )
     .then((res) => res.json())
     .then((movies) =>
-      dispatch(fetchDataSuccess({ data: movies.data, sortBy, filter, search }))
+      dispatch(fetchDataSuccess({ data: movies.data, sortBy, filter }))
     )
     .catch((err) => dispatch(fetchDataError(err)));
 };

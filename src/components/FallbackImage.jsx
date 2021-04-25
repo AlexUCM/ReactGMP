@@ -11,7 +11,7 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-export const FallbackImage = ({ src = '', onClick }) => {
+export const FallbackImage = ({ src = poster, onClick }) => {
   const [error, setError] = useState(false);
 
   const onImageError = () => setError(true);
@@ -32,5 +32,5 @@ export const FallbackImage = ({ src = '', onClick }) => {
 
 FallbackImage.propTypes = {
   src: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };

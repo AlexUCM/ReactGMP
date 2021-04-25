@@ -8,7 +8,6 @@ const initialState = {
   movies: [],
   sortBy: '',
   filter: '',
-  search: '',
   error: null,
   isLoading: false,
 };
@@ -27,7 +26,6 @@ const moviesReducer = (state = initialState, action) => {
         movies: action.payload.data,
         sortBy: action.payload.sortBy,
         filter: action.payload.filter,
-        search: action.payload.search,
       };
     case SEARCH_MOVIES_ERROR:
       return {

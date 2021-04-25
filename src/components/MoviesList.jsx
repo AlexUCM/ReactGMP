@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import { MovieCard } from './MovieCard';
 import { Navbar } from './Navbar';
 import { EditForm } from './EditForm';
@@ -7,7 +8,6 @@ import { DeleteForm } from './DeleteForm';
 import { ScrollToTop } from './ScrollToTop';
 import { Loading } from './Loading';
 import fetchMovies from '../redux/actions/fetchMovies';
-import fetchMovie from '../redux/actions/fetchMovie';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -69,11 +69,11 @@ export const MoviesList = () => {
   const sortingValues = { RELEASE_DATE: 'RELEASE DATE', RATING: 'RATING' };
 
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { query } = useParams();
   const [genreValue, setGenreValue] = useState(navGenres.all);
   const [sortValue, setSortValue] = useState(sortingValues.RELEASE_DATE);
-  const { movies, search, isLoading } = useSelector(
-    (state) => state.moviesData
-  );
+  const { movies, isLoading } = useSelector((state) => state.moviesData);
   const [{ isOpen, status, movieData }, setMovie] = useState({
     isOpen: false,
     status: null,
@@ -100,12 +100,15 @@ export const MoviesList = () => {
       fetchMovies({
         filter: genreValue === navGenres.all ? '' : genreValue,
         sortBy: getSortQuery(sortValue),
-        search,
+        search: query,
       })
     );
-  }, [genreValue, sortValue]);
+  }, [genreValue, sortValue, query]);
 
-  const handleMovieDetails = (id) => dispatch(fetchMovie(id));
+  const handleMovieDetails = (id) => {
+    history.push(`/film/${id}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <Container>
