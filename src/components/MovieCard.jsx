@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #232323;
 `;
 
 const Menu = styled.div`
@@ -26,6 +26,7 @@ const Poster = styled.div`
   position: relative;
   padding-top: 148%;
   overflow: hidden;
+  background-color: #fff;
   cursor: pointer;
 
   &:hover ${Menu} {
@@ -83,7 +84,7 @@ export const MovieCard = ({
   poster,
   id,
   getMovie,
-  handleMovieDet,
+  handleMovieDetails,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -96,8 +97,8 @@ export const MovieCard = ({
 
   return (
     <Container>
-      <Poster onClick={() => handleMovieDet(id)}>
-        <FallbackImage src={poster} />
+      <Poster>
+        <FallbackImage src={poster} onClick={() => handleMovieDetails(id)} />
         <Menu isOpen={isOpen}>
           <CardMenu
             isOpen={isOpen}
@@ -128,5 +129,5 @@ MovieCard.propTypes = {
   poster: PropTypes.string,
   id: PropTypes.number.isRequired,
   getMovie: PropTypes.func.isRequired,
-  handleMovieDet: PropTypes.func.isRequired,
+  handleMovieDetails: PropTypes.func.isRequired,
 };

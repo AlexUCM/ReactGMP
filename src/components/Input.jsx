@@ -1,8 +1,10 @@
 import React from 'react';
+import { useField } from 'formik';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Label = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
 `;
@@ -18,8 +20,13 @@ const StyledInput = styled.input`
   color: #fff;
   outline: none;
 
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   ${(props) =>
-    props.type === 'number' &&
+    props.type === 'id' &&
     `
     padding: 0;
     margin: 0;
@@ -42,30 +49,24 @@ const StyledInput = styled.input`
   `}
 `;
 
-export const Input = ({
-  title,
-  name,
-  type,
-  value = '',
-  onChange,
-  placeholder = '',
-  style = {},
-  disabled = false,
-}) => (
-  <Label>
-    {title}
-    <StyledInput
-      placeholder={placeholder}
-      name={name}
-      type={type}
-      value={value}
-      disabled={disabled}
-      style={style}
-      onChange={onChange}
-      autoComplete='off'
-    />
-  </Label>
-);
+const Error = styled.p`
+  position: absolute;
+  bottom: -16px;
+  font-size: 12px;
+  right: 0;
+`;
+
+export const Input = ({ title, ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <Label>
+      {title}
+      <StyledInput {...field} {...props} autoComplete='off' />
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
+    </Label>
+  );
+};
 
 Input.propTypes = {
   title: PropTypes.string.isRequired,
@@ -75,5 +76,4 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.string),
   disabled: PropTypes.bool,
-  onChange: PropTypes.func,
 };

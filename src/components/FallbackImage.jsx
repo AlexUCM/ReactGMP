@@ -11,7 +11,7 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-export const FallbackImage = ({ src = '' }) => {
+export const FallbackImage = ({ src = '', onClick }) => {
   const [error, setError] = useState(false);
 
   const onImageError = () => setError(true);
@@ -21,6 +21,7 @@ export const FallbackImage = ({ src = '' }) => {
   return (
     <Image
       onError={onImageError}
+      onClick={onClick}
       src={imgSrc}
       width='9'
       height='16'
@@ -31,4 +32,5 @@ export const FallbackImage = ({ src = '' }) => {
 
 FallbackImage.propTypes = {
   src: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };

@@ -36,7 +36,7 @@ const Name = styled.h1`
   font-weight: normal;
 `;
 
-const Raiting = styled.div`
+const Rating = styled.div`
   margin: 0 0 0 16px;
   width: 60px;
   height: 60px;
@@ -99,7 +99,7 @@ export const MovieDetails = () => {
       <Info>
         <NameAndRaiting>
           <Name>{movie.title}</Name>
-          <Raiting rating={!movie.rating}>{movie.vote_average}</Raiting>
+          <Rating rating={!movie.rating}>{movie.vote_average}</Rating>
         </NameAndRaiting>
         <RuntimeAndRelease>
           <ReleaseDate>{movie.release_date.slice(0, 4)}</ReleaseDate>

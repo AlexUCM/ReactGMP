@@ -24,7 +24,7 @@ const fetchMovies = ({ sortBy = '', filter = '', search = '' }) => (
 ) => {
   dispatch(fetchData());
   fetch(
-    `${BASE_URL}?searchBy=title&sortOrder=desc&limit=120&filter=${filter}&sortBy=${sortBy}&search=${search}`
+    `${BASE_URL}?searchBy=title&sortOrder=desc&limit=360&filter=${filter}&sortBy=${sortBy}&search=${search}`
   )
     .then((res) => res.json())
     .then((movies) =>
