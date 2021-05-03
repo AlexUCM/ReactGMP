@@ -144,7 +144,7 @@ export const FormSelect = ({ name, value, onChange }) => {
           <Value value={value}>{value || 'Select genre'}</Value>
           <Arrow isOpen={isOpen}>&#9660;</Arrow>
         </Select>
-        <Dropdown isOpen={isOpen}>
+        <Dropdown data-testid='dropdown' isOpen={isOpen}>
           {genres.map((genre) => (
             <InputWrapper key={genre}>
               <Input

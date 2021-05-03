@@ -99,7 +99,7 @@ export const MovieCard = ({
     <Container>
       <Poster>
         <FallbackImage src={poster} onClick={() => handleMovieDetails(id)} />
-        <Menu isOpen={isOpen}>
+        <Menu data-testid='menu' isOpen={isOpen}>
           <CardMenu
             isOpen={isOpen}
             onOpenModal={onOpenModal}

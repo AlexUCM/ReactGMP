@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ gJsOcF"
+  >
+    <div
+      class="sc-gsTCUz eNWJyt"
+    />
+    <div
+      class="sc-dlfnbm eUPWEZ"
+    >
+      <a
+        href="/"
+      >
+        <span
+          class="sc-hKgILt eXlbIJ"
+        >
+          <b>
+            netflix
+          </b>
+          roulette
+        </span>
+      </a>
+      <div>
+        Test children
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

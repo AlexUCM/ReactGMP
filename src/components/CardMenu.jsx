@@ -58,10 +58,10 @@ const Close = styled.div`
 
 export const CardMenu = ({ isOpen, toggleMenu, onOpenModal }) => {
   const ref = useRef();
-  useClickOutside(ref, () => isOpen && toggleMenu());
+  useClickOutside(ref, isOpen && toggleMenu);
   return (
     <>
-      <Menu onClick={toggleMenu}>
+      <Menu data-testid='card-menu' onClick={toggleMenu}>
         <Dot />
         <Dot />
         <Dot />
