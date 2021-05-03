@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search } from './Search';
-import { MovieDetails } from './MovieDetails';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import background from '../images/movies-background.jpg';
 
@@ -42,20 +42,25 @@ const Logo = styled.span`
   z-index: 50;
 `;
 
-export const Header = () => {
+export const Header = ({ children }) => {
   return (
     <>
       <Container>
         <Shadow />
         <Section>
-          <Logo>
-            <b>netflix</b>
-            roulette
-          </Logo>
-          <Search />
-          {/* <MovieDetails /> */}
+          <Link to='/'>
+            <Logo>
+              <b>netflix</b>
+              roulette
+            </Logo>
+          </Link>
+          {children}
         </Section>
       </Container>
     </>
   );
+};
+
+Header.propTypes = {
+  children: PropTypes.node.isRequired,
 };

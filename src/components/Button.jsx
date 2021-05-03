@@ -58,6 +58,16 @@ const StyledButton = styled.button`
     border: 1px solid #fff;
     cursor: auto;
   `}
+
+  ${(props) =>
+    props.backToHome &&
+    `
+    padding: 16px 24px;
+    width: 240px;
+    background-color: transparent;
+    border: 1px solid #f65261;
+    color: #f65261;
+  `}
 `;
 
 export const Button = ({
@@ -69,6 +79,7 @@ export const Button = ({
   confirm,
   reset,
   disabled,
+  backToHome,
   children,
 }) => (
   <StyledButton
@@ -80,6 +91,7 @@ export const Button = ({
     confirm={confirm}
     reset={reset}
     disabled={disabled}
+    backToHome={backToHome}
   >
     {children}
   </StyledButton>
@@ -94,5 +106,6 @@ Button.propTypes = {
   confirm: PropTypes.bool,
   reset: PropTypes.bool,
   disabled: PropTypes.bool,
+  backToHome: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };

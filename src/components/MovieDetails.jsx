@@ -1,14 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FallbackImage } from './FallbackImage';
+import fetchMovie from '../redux/actions/fetchMovie';
 import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
-  padding: 60px 0 60px 56px;
+  padding: 48px 0 0 56px;
   display: flex;
+  height: 424px;
   width: 100%;
 
   & img {
@@ -78,6 +81,7 @@ const Runtime = styled.div`
 const Overview = styled.p`
   padding: 0 64px 0 0;
   font-size: 20px;
+  overflow-y: auto;
 `;
 
 const SearchIcon = styled.div`
@@ -90,29 +94,47 @@ const SearchIcon = styled.div`
   cursor: pointer;
 `;
 
+const NotFound = styled.p`
+  flex: 1;
+  text-align: center;
+  align-self: center;
+  font-size: 64px;
+  color: #fff;
+`;
+
 export const MovieDetails = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const { movie } = useSelector((state) => state.movieData);
+
+  useEffect(() => dispatch(fetchMovie(id)), [id]);
 
   return (
     <Container>
       <FallbackImage src={movie.poster_path} />
-      <Info>
-        <NameAndRaiting>
-          <Name>{movie.title}</Name>
-          <Rating rating={!movie.rating}>{movie.vote_average}</Rating>
-        </NameAndRaiting>
-        <RuntimeAndRelease>
-          <ReleaseDate>{movie.release_date.slice(0, 4)}</ReleaseDate>
-          <Runtime runtime={!movie.runtime}>
-            {movie.runtime}
-            {' min'}
-          </Runtime>
-        </RuntimeAndRelease>
-        <Overview>{movie.overview}</Overview>
-      </Info>
-      <SearchIcon>
-        <FontAwesomeIcon icon={faSearch} />
-      </SearchIcon>
+      {movie.id ? (
+        <Info>
+          <NameAndRaiting>
+            <Name>{movie.title}</Name>
+            <Rating rating={!movie.rating}>{movie.vote_average}</Rating>
+          </NameAndRaiting>
+          <RuntimeAndRelease>
+            <ReleaseDate>{movie.release_date.slice(0, 4)}</ReleaseDate>
+            <Runtime runtime={!movie.runtime}>
+              {movie.runtime}
+              {' min'}
+            </Runtime>
+          </RuntimeAndRelease>
+          <Overview>{movie.overview}</Overview>
+        </Info>
+      ) : (
+        <NotFound>No movie found</NotFound>
+      )}
+      <Link to='/'>
+        <SearchIcon>
+          <FontAwesomeIcon icon={faSearch} />
+        </SearchIcon>
+      </Link>
     </Container>
   );
 };

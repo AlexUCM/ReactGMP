@@ -1,8 +1,6 @@
 import React from 'react';
-import { MoviesList } from './components/MoviesList';
+import { Routes } from './Routes';
 import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { ErrorBoundary } from './components/ErrorBoundary';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -52,10 +50,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <StyledContainer>
-        <Header />
-        <ErrorBoundary>
-          <MoviesList />
-        </ErrorBoundary>
+        <Routes />
         <Footer />
       </StyledContainer>
     </>
