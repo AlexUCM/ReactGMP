@@ -46,34 +46,15 @@ const NotFound = styled.p`
   color: #ffffffc2;
 `;
 
-export const getSortQuery = (str) => {
-  switch (str) {
-    case 'RELEASE DATE':
-      return 'release_date';
-    case 'RATING':
-      return 'vote_average';
-    default:
-      return '';
-  }
-};
-
 export const MoviesList = () => {
-  const navGenres = {
-    all: 'all',
-    documentary: 'documentary',
-    comedy: 'comedy',
-    horror: 'horror',
-    crime: 'crime',
-  };
-
-  const sortingValues = { RELEASE_DATE: 'RELEASE DATE', RATING: 'RATING' };
-
   const dispatch = useDispatch();
   const history = useHistory();
   const { query } = useParams();
-  const [genreValue, setGenreValue] = useState(navGenres.all);
-  const [sortValue, setSortValue] = useState(sortingValues.RELEASE_DATE);
-  const { movies, isLoading } = useSelector((state) => state.moviesData);
+  const { movies, isLoading, error, sortBy, filter } = useSelector(
+    (state) => state.moviesData
+  );
+  const [genreValue, setGenreValue] = useState(filter);
+  const [sortValue, setSortValue] = useState(sortBy);
   const [{ isOpen, status, movieData }, setMovie] = useState({
     isOpen: false,
     status: null,
@@ -98,8 +79,8 @@ export const MoviesList = () => {
   useEffect(() => {
     dispatch(
       fetchMovies({
-        filter: genreValue === navGenres.all ? '' : genreValue,
-        sortBy: getSortQuery(sortValue),
+        filter: genreValue,
+        sortBy: sortValue,
         search: query,
       })
     );
@@ -157,7 +138,7 @@ export const MoviesList = () => {
             <DeleteForm id={movieData.id} onClose={onCloseModal} />
           )}
         </List>
-        {!movies.length && <NotFound>Movies not found</NotFound>}
+        {error && <NotFound>Movies not found</NotFound>}
         {isLoading && <Loading />}
       </Section>
       <ScrollToTop />

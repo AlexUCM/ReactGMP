@@ -62,8 +62,15 @@ export const Input = ({ title, ...props }) => {
   return (
     <Label>
       {title}
-      <StyledInput {...field} {...props} autoComplete='off' />
-      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
+      <StyledInput
+        data-testid={props.name}
+        {...field}
+        {...props}
+        autoComplete='off'
+      />
+      {meta.touched && meta.error ? (
+        <Error data-testid='error'>{meta.error}</Error>
+      ) : null}
     </Label>
   );
 };

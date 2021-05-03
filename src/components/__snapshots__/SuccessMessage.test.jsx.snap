@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuccessMessage Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ dfjDra"
+  >
+    <div
+      class="sc-gsTCUz hXQSIg"
+    >
+      <div
+        class="sc-dlfnbm eBXorF"
+      >
+        ×
+      </div>
+      <h1
+        class="sc-hKgILt kjuWit"
+      />
+      <div
+        class="sc-eCssSg dumrlR"
+      >
+        <div
+          class="sc-iBPRYJ hikTbY"
+        />
+        <h1
+          class="sc-jSgupP erGugP"
+        >
+          CONGRATULATIONS !
+        </h1>
+        <p
+          class="sc-gKsewC cLLJQk"
+        >
+          The movie has been added to database successfully
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

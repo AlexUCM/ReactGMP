@@ -1,0 +1,733 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Should renders correctly with main page 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fbNXWD ilBvng"
+  >
+    <div
+      class="sc-bdfBwQ gJsOcF"
+    >
+      <div
+        class="sc-gsTCUz eNWJyt"
+      />
+      <div
+        class="sc-dlfnbm eUPWEZ"
+      >
+        <a
+          href="/"
+        >
+          <span
+            class="sc-hKgILt eXlbIJ"
+          >
+            <b>
+              netflix
+            </b>
+            roulette
+          </span>
+        </a>
+        <div
+          class="sc-jcVebW higsZW"
+        >
+          <button
+            class="sc-kstrdz jCqDgQ"
+            type="button"
+          >
+            + ADD MOVIE
+          </button>
+          <div
+            class="sc-bZSQDF fMQrXe"
+          >
+            <h1
+              class="sc-iUuytg hpemyX"
+            >
+              FIND YOUR MOVIE
+            </h1>
+            <form
+              class="sc-iBaPrD bUBJwc"
+            >
+              <input
+                class="sc-eggNIi gFpwte"
+                placeholder="What do you want to watch?"
+                type="text"
+                value=""
+              />
+              <button
+                class="sc-kstrdz cHZWJP"
+                type="submit"
+              >
+                SEARCH
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bTvRPi zxUCO"
+    >
+      <div
+        class="sc-kIeTtH kTFAEk"
+      >
+        <div
+          class="sc-lcujXC leRQZu"
+        >
+          <div
+            class="sc-fbkhIv dBTXAG"
+          >
+            <div
+              class="sc-GqfZa jGBAw"
+            >
+              all
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              documentary
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              comedy
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              horror
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              crime
+            </div>
+          </div>
+          <div
+            class="sc-gGmIRh iPUcjh"
+          >
+            <span
+              class="sc-clsHhM dKCeeO"
+            >
+              SORT BY
+            </span>
+            <div
+              class="sc-nFpLZ cuCJCk"
+              data-testid="select"
+            >
+              RELEASE DATE
+              <div
+                class="sc-higXBA iBnpsJ"
+                data-testid="dropdown"
+              >
+                <p
+                  class="sc-ehSCib rYOkb"
+                  data-testid="RELEASE DATE"
+                >
+                  RELEASE DATE
+                </p>
+                <p
+                  class="sc-ehSCib iyGRjb"
+                  data-testid="RATING"
+                >
+                  RATING
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-dtwoBo dUWolL"
+        >
+          <span
+            class="sc-dacFzL bHSRlm"
+          >
+            1
+          </span>
+          <span>
+            movies found
+          </span>
+        </div>
+        <div
+          class="sc-hOqqkJ bKCTkO"
+        >
+          <div
+            class="sc-AzgDb fpCWbq"
+          >
+            <div
+              class="sc-hTZhsR eFgWum"
+            >
+              <img
+                alt="poster"
+                class="sc-eCssSg eiBTLF"
+                height="16"
+                src="https://image.tmdb.org/t/p/w500/5wioUjzwr91fvq7ydunxK2CPSxi.jpg"
+                width="9"
+              />
+              <div
+                class="sc-khAkjo ljEHNe"
+                data-testid="menu"
+              >
+                <div
+                  class="sc-cTkwdZ kSNViW"
+                  data-testid="card-menu"
+                >
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="sc-jgHCyG kfpKlP"
+            >
+              <div
+                class="sc-gTgzIj gXTief"
+              >
+                <h2
+                  class="sc-laRPJI cNqLez"
+                >
+                  Noah
+                </h2>
+                <p
+                  class="sc-iNqMTl hlVubp"
+                >
+                  Drama & Adventure
+                </p>
+              </div>
+              <div
+                class="sc-jeGSBP hAxUEd"
+              >
+                <span
+                  class="sc-eJMQSu fYbFcj"
+                >
+                  2014
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-jONnTn iFgosc"
+      />
+    </div>
+    <div
+      class="sc-jQbIHB bcYGqR"
+    >
+      <span
+        class="sc-fvhGYg fDkTiA"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App Should renders correctly with movieDetails page 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fbNXWD ilBvng"
+  >
+    <div
+      class="sc-bdfBwQ gJsOcF"
+    >
+      <div
+        class="sc-gsTCUz eNWJyt"
+      />
+      <div
+        class="sc-dlfnbm eUPWEZ"
+      >
+        <a
+          href="/"
+        >
+          <span
+            class="sc-hKgILt eXlbIJ"
+          >
+            <b>
+              netflix
+            </b>
+            roulette
+          </span>
+        </a>
+        <div
+          class="sc-jSgupP fFSIdK"
+        >
+          <img
+            alt="poster"
+            class="sc-eCssSg eiBTLF"
+            height="16"
+            src="https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg"
+            width="9"
+          />
+          <div
+            class="sc-gKsewC bnBuPU"
+          >
+            <div
+              class="sc-iBPRYJ iUImDk"
+            >
+              <h1
+                class="sc-fubCfw GSypD"
+              >
+                La La Land
+              </h1>
+              <div
+                class="sc-pFZIQ iCaCo"
+              >
+                7.9
+              </div>
+            </div>
+            <div
+              class="sc-jrAGrp kAXcay"
+            >
+              <div
+                class="sc-kEjbxe kiCKpx"
+              >
+                2016
+              </div>
+              <div
+                class="sc-iqHYGH brHPDj"
+              >
+                128 min
+              </div>
+            </div>
+            <p
+              class="sc-crrsfI kUluD"
+            >
+              Mia, an aspiring actress, serves lattes to movie stars in between auditions and Sebastian, a jazz musician, scrapes by playing cocktail party gigs in dingy bars, but as success mounts they are faced with decisions that begin to fray the fragile fabric of their love affair, and the dreams they worked so hard to maintain in each other threaten to rip them apart.
+            </p>
+          </div>
+          <a
+            href="/"
+          >
+            <div
+              class="sc-dQppl jObTUk"
+            >
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-search fa-w-16 "
+                data-icon="search"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bTvRPi zxUCO"
+    >
+      <div
+        class="sc-kIeTtH kTFAEk"
+      >
+        <div
+          class="sc-lcujXC leRQZu"
+        >
+          <div
+            class="sc-fbkhIv dBTXAG"
+          >
+            <div
+              class="sc-GqfZa jGBAw"
+            >
+              all
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              documentary
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              comedy
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              horror
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              crime
+            </div>
+          </div>
+          <div
+            class="sc-gGmIRh iPUcjh"
+          >
+            <span
+              class="sc-clsHhM dKCeeO"
+            >
+              SORT BY
+            </span>
+            <div
+              class="sc-nFpLZ cuCJCk"
+              data-testid="select"
+            >
+              RELEASE DATE
+              <div
+                class="sc-higXBA iBnpsJ"
+                data-testid="dropdown"
+              >
+                <p
+                  class="sc-ehSCib rYOkb"
+                  data-testid="RELEASE DATE"
+                >
+                  RELEASE DATE
+                </p>
+                <p
+                  class="sc-ehSCib iyGRjb"
+                  data-testid="RATING"
+                >
+                  RATING
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-dtwoBo dUWolL"
+        >
+          <span
+            class="sc-dacFzL bHSRlm"
+          >
+            1
+          </span>
+          <span>
+            movies found
+          </span>
+        </div>
+        <div
+          class="sc-hOqqkJ bKCTkO"
+        >
+          <div
+            class="sc-AzgDb fpCWbq"
+          >
+            <div
+              class="sc-hTZhsR eFgWum"
+            >
+              <img
+                alt="poster"
+                class="sc-eCssSg eiBTLF"
+                height="16"
+                src="https://image.tmdb.org/t/p/w500/5wioUjzwr91fvq7ydunxK2CPSxi.jpg"
+                width="9"
+              />
+              <div
+                class="sc-khAkjo ljEHNe"
+                data-testid="menu"
+              >
+                <div
+                  class="sc-cTkwdZ kSNViW"
+                  data-testid="card-menu"
+                >
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="sc-jgHCyG kfpKlP"
+            >
+              <div
+                class="sc-gTgzIj gXTief"
+              >
+                <h2
+                  class="sc-laRPJI cNqLez"
+                >
+                  Noah
+                </h2>
+                <p
+                  class="sc-iNqMTl hlVubp"
+                >
+                  Drama & Adventure
+                </p>
+              </div>
+              <div
+                class="sc-jeGSBP hAxUEd"
+              >
+                <span
+                  class="sc-eJMQSu fYbFcj"
+                >
+                  2014
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-jONnTn iFgosc"
+      />
+    </div>
+    <div
+      class="sc-jQbIHB bcYGqR"
+    >
+      <span
+        class="sc-fvhGYg fDkTiA"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App Should renders correctly with search page 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fbNXWD ilBvng"
+  >
+    <div
+      class="sc-bdfBwQ gJsOcF"
+    >
+      <div
+        class="sc-gsTCUz eNWJyt"
+      />
+      <div
+        class="sc-dlfnbm eUPWEZ"
+      >
+        <a
+          href="/"
+        >
+          <span
+            class="sc-hKgILt eXlbIJ"
+          >
+            <b>
+              netflix
+            </b>
+            roulette
+          </span>
+        </a>
+        <div
+          class="sc-jcVebW higsZW"
+        >
+          <button
+            class="sc-kstrdz jCqDgQ"
+            type="button"
+          >
+            + ADD MOVIE
+          </button>
+          <div
+            class="sc-bZSQDF fMQrXe"
+          >
+            <h1
+              class="sc-iUuytg hpemyX"
+            >
+              FIND YOUR MOVIE
+            </h1>
+            <form
+              class="sc-iBaPrD bUBJwc"
+            >
+              <input
+                class="sc-eggNIi gFpwte"
+                placeholder="What do you want to watch?"
+                type="text"
+                value="avengers"
+              />
+              <button
+                class="sc-kstrdz cHZWJP"
+                type="submit"
+              >
+                SEARCH
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bTvRPi zxUCO"
+    >
+      <div
+        class="sc-kIeTtH kTFAEk"
+      >
+        <div
+          class="sc-lcujXC leRQZu"
+        >
+          <div
+            class="sc-fbkhIv dBTXAG"
+          >
+            <div
+              class="sc-GqfZa jGBAw"
+            >
+              all
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              documentary
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              comedy
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              horror
+            </div>
+            <div
+              class="sc-GqfZa hTQtPg"
+            >
+              crime
+            </div>
+          </div>
+          <div
+            class="sc-gGmIRh iPUcjh"
+          >
+            <span
+              class="sc-clsHhM dKCeeO"
+            >
+              SORT BY
+            </span>
+            <div
+              class="sc-nFpLZ cuCJCk"
+              data-testid="select"
+            >
+              RELEASE DATE
+              <div
+                class="sc-higXBA iBnpsJ"
+                data-testid="dropdown"
+              >
+                <p
+                  class="sc-ehSCib rYOkb"
+                  data-testid="RELEASE DATE"
+                >
+                  RELEASE DATE
+                </p>
+                <p
+                  class="sc-ehSCib iyGRjb"
+                  data-testid="RATING"
+                >
+                  RATING
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-dtwoBo dUWolL"
+        >
+          <span
+            class="sc-dacFzL bHSRlm"
+          >
+            1
+          </span>
+          <span>
+            movies found
+          </span>
+        </div>
+        <div
+          class="sc-hOqqkJ bKCTkO"
+        >
+          <div
+            class="sc-AzgDb fpCWbq"
+          >
+            <div
+              class="sc-hTZhsR eFgWum"
+            >
+              <img
+                alt="poster"
+                class="sc-eCssSg eiBTLF"
+                height="16"
+                src="https://image.tmdb.org/t/p/w500/5wioUjzwr91fvq7ydunxK2CPSxi.jpg"
+                width="9"
+              />
+              <div
+                class="sc-khAkjo ljEHNe"
+                data-testid="menu"
+              >
+                <div
+                  class="sc-cTkwdZ kSNViW"
+                  data-testid="card-menu"
+                >
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                  <div
+                    class="sc-jNMdTA lczeQa"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="sc-jgHCyG kfpKlP"
+            >
+              <div
+                class="sc-gTgzIj gXTief"
+              >
+                <h2
+                  class="sc-laRPJI cNqLez"
+                >
+                  Noah
+                </h2>
+                <p
+                  class="sc-iNqMTl hlVubp"
+                >
+                  Drama & Adventure
+                </p>
+              </div>
+              <div
+                class="sc-jeGSBP hAxUEd"
+              >
+                <span
+                  class="sc-eJMQSu fYbFcj"
+                >
+                  2014
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-jONnTn iFgosc"
+      />
+    </div>
+    <div
+      class="sc-jQbIHB bcYGqR"
+    >
+      <span
+        class="sc-fvhGYg fDkTiA"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

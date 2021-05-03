@@ -73,12 +73,17 @@ export const Select = ({ value, toggleSortValue }) => {
       onClick={() => setIsOpen((state) => !state)}
       isOpen={isOpen}
       ref={ref}
+      data-testid='select'
     >
       {value}
-      <Dropdown onClick={toggleSortValue} isOpen={isOpen}>
+      <Dropdown
+        onClick={toggleSortValue}
+        isOpen={isOpen}
+        data-testid='dropdown'
+      >
         {Object.values(sortingValues).map((val) => {
           return (
-            <SortValue key={val} isActive={val === value}>
+            <SortValue key={val} isActive={val === value} data-testid={val}>
               {val}
             </SortValue>
           );

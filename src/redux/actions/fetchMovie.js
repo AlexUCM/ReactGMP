@@ -21,7 +21,7 @@ const fetchDataError = (err) => ({
 
 const fetchMovie = (id) => (dispatch) => {
   dispatch(fetchData());
-  fetch(`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}/${id}`)
     .then((res) => res.json())
     .then((movie) => dispatch(fetchDataSuccess(movie)))
     .catch((err) => dispatch(fetchDataError(err)));

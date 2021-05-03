@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hHftDr eWUebZ"
+  >
+    <button
+      class="sc-bdfBwQ eknpTI"
+      type="button"
+    >
+      + ADD MOVIE
+    </button>
+    <div
+      class="sc-dmlrTW bFGbra"
+    >
+      <h1
+        class="sc-kfzAmx dbracP"
+      >
+        FIND YOUR MOVIE
+      </h1>
+      <form
+        class="sc-fKFyDc gVtWXF"
+      >
+        <input
+          class="sc-bBXqnf hDEOIc"
+          placeholder="What do you want to watch?"
+          type="text"
+          value=""
+        />
+        <button
+          class="sc-bdfBwQ fcxkKr"
+          type="submit"
+        >
+          SEARCH
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

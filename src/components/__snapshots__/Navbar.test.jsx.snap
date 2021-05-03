@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKgILt bHxxhs"
+  >
+    <div
+      class="sc-gKsewC cDRIao"
+    >
+      <div
+        class="sc-iBPRYJ ppcMN"
+      >
+        all
+      </div>
+      <div
+        class="sc-iBPRYJ eVZYtF"
+      >
+        documentary
+      </div>
+      <div
+        class="sc-iBPRYJ eVZYtF"
+      >
+        comedy
+      </div>
+      <div
+        class="sc-iBPRYJ eVZYtF"
+      >
+        horror
+      </div>
+      <div
+        class="sc-iBPRYJ eVZYtF"
+      >
+        crime
+      </div>
+    </div>
+    <div
+      class="sc-eCssSg hZsPkF"
+    >
+      <span
+        class="sc-jSgupP csJICY"
+      >
+        SORT BY
+      </span>
+      <div
+        class="sc-bdfBwQ joLNfS"
+        data-testid="select"
+      >
+        release_date
+        <div
+          class="sc-gsTCUz hsgYzw"
+          data-testid="dropdown"
+        >
+          <p
+            class="sc-dlfnbm hCPypq"
+            data-testid="RELEASE DATE"
+          >
+            RELEASE DATE
+          </p>
+          <p
+            class="sc-dlfnbm hCPypq"
+            data-testid="RATING"
+          >
+            RATING
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

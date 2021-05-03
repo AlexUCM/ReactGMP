@@ -111,7 +111,7 @@ export const MovieDetails = () => {
 
   return (
     <Container>
-      <FallbackImage src={movie.poster_path} />
+      <FallbackImage src={movie.poster_path} id={id} />
       {movie.id ? (
         <Info>
           <NameAndRaiting>

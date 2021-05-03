@@ -1,0 +1,488 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddForm Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pFZIQ hVOHES"
+  >
+    <div
+      class="sc-jrAGrp iexbAM"
+    >
+      <div
+        class="sc-kEjbxe iMSwrt"
+      >
+        ×
+      </div>
+      <h1
+        class="sc-iqHYGH fBojKG"
+      >
+        ADD MOVIE
+      </h1>
+      <form
+        class="sc-kstrdz coqlya"
+      >
+        <label
+          class="sc-crrsfI gUNRwH"
+        >
+          TITLE
+          <input
+            autocomplete="off"
+            class="sc-dQppl lcSnla"
+            data-testid="title"
+            name="title"
+            placeholder="Title here"
+            type="text"
+            value=""
+          />
+        </label>
+        <br />
+        <label
+          class="sc-crrsfI gUNRwH"
+        >
+          RELEASE DATE
+          <input
+            autocomplete="off"
+            class="sc-dQppl IwxVS"
+            data-testid="release_date"
+            name="release_date"
+            style="color: rgba(169, 169, 169, 0.753);"
+            type="date"
+            value=""
+          />
+        </label>
+        <br />
+        <label
+          class="sc-crrsfI gUNRwH"
+        >
+          POSTER PATH
+          <input
+            autocomplete="off"
+            class="sc-dQppl lcSnla"
+            data-testid="poster_path"
+            name="poster_path"
+            placeholder="Poster URL here"
+            type="text"
+            value=""
+          />
+        </label>
+        <br />
+        <span>
+          GENRE
+        </span>
+        <div
+          class="sc-gsTCUz beLXod"
+        >
+          <div
+            class="sc-dlfnbm jsDslt"
+          >
+            <p
+              class="sc-hKgILt broBBT"
+              value=""
+            >
+              Select genre
+            </p>
+            <div
+              class="sc-eCssSg iUGMuV"
+            >
+              ▼
+            </div>
+          </div>
+          <div
+            class="sc-jSgupP ifAfpv"
+            data-testid="dropdown"
+          >
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="action"
+                name="genres"
+                type="checkbox"
+                value="action"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="action"
+              >
+                <span>
+                  action
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="adventure"
+                name="genres"
+                type="checkbox"
+                value="adventure"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="adventure"
+              >
+                <span>
+                  adventure
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="animation"
+                name="genres"
+                type="checkbox"
+                value="animation"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="animation"
+              >
+                <span>
+                  animation
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="comedy"
+                name="genres"
+                type="checkbox"
+                value="comedy"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="comedy"
+              >
+                <span>
+                  comedy
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="crime"
+                name="genres"
+                type="checkbox"
+                value="crime"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="crime"
+              >
+                <span>
+                  crime
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="documentary"
+                name="genres"
+                type="checkbox"
+                value="documentary"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="documentary"
+              >
+                <span>
+                  documentary
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="drama"
+                name="genres"
+                type="checkbox"
+                value="drama"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="drama"
+              >
+                <span>
+                  drama
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="family"
+                name="genres"
+                type="checkbox"
+                value="family"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="family"
+              >
+                <span>
+                  family
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="fantasy"
+                name="genres"
+                type="checkbox"
+                value="fantasy"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="fantasy"
+              >
+                <span>
+                  fantasy
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="history"
+                name="genres"
+                type="checkbox"
+                value="history"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="history"
+              >
+                <span>
+                  history
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="horror"
+                name="genres"
+                type="checkbox"
+                value="horror"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="horror"
+              >
+                <span>
+                  horror
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="music"
+                name="genres"
+                type="checkbox"
+                value="music"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="music"
+              >
+                <span>
+                  music
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="mystery"
+                name="genres"
+                type="checkbox"
+                value="mystery"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="mystery"
+              >
+                <span>
+                  mystery
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="romance"
+                name="genres"
+                type="checkbox"
+                value="romance"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="romance"
+              >
+                <span>
+                  romance
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="science fiction"
+                name="genres"
+                type="checkbox"
+                value="science fiction"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="science fiction"
+              >
+                <span>
+                  science fiction
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="thriller"
+                name="genres"
+                type="checkbox"
+                value="thriller"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="thriller"
+              >
+                <span>
+                  thriller
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="war"
+                name="genres"
+                type="checkbox"
+                value="war"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="war"
+              >
+                <span>
+                  war
+                </span>
+              </label>
+            </div>
+            <div
+              class="sc-gKsewC hhRRBS"
+            >
+              <input
+                class="sc-iBPRYJ iLRzOu"
+                id="western"
+                name="genres"
+                type="checkbox"
+                value="western"
+              />
+              <label
+                class="sc-fubCfw dJGYcR"
+                for="western"
+              >
+                <span>
+                  western
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <br />
+        <label
+          class="sc-crrsfI gUNRwH"
+        >
+          OVERVIEW
+          <input
+            autocomplete="off"
+            class="sc-dQppl lcSnla"
+            data-testid="overview"
+            name="overview"
+            placeholder="Overview here"
+            type="text"
+            value=""
+          />
+        </label>
+        <br />
+        <label
+          class="sc-crrsfI gUNRwH"
+        >
+          RUNTIME
+          <input
+            autocomplete="off"
+            class="sc-dQppl lcSnla"
+            data-testid="runtime"
+            name="runtime"
+            placeholder="Runtime here"
+            type="number"
+            value=""
+          />
+        </label>
+      </form>
+      <div
+        class="sc-hBEYos cXHMrb"
+      >
+        <button
+          class="sc-bdfBwQ dxFXKa"
+          type="reset"
+        >
+          RESET
+        </button>
+        <button
+          class="sc-bdfBwQ hqKOVe"
+          type="submit"
+        >
+          SUBMIT
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

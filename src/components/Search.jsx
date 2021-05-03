@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { AddForm } from './AddForm';
 import { Button } from './Button';
@@ -55,7 +55,7 @@ export const Search = () => {
   const history = useHistory();
   const { query } = useParams();
 
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(query);
   const [{ isForm, isMessage }, setIsOpen] = useState({
     isForm: false,
     isMessage: false,
@@ -72,8 +72,6 @@ export const Search = () => {
     }
     event.preventDefault();
   };
-
-  useEffect(() => setValue(query), []);
 
   return (
     <>
