@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Should renders correctly 1`] = `
+<div
+  className="sc-bdfBwQ jlSIrb"
+>
+  <span
+    className="sc-gsTCUz bYLtyx"
+  >
+    <b>
+      netflix
+    </b>
+    roulette
+  </span>
+</div>
+`;

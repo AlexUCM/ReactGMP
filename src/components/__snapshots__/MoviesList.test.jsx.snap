@@ -1,0 +1,295 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-cTkwdZ cNBPuM"
+  >
+    <div
+      class="sc-jNMdTA crVjYD"
+    >
+      <div
+        class="sc-fodVxV hwSNEM"
+      >
+        <div
+          class="sc-idOhPF hdHMhW"
+        >
+          <div
+            class="sc-dIUggk chpKHI"
+          >
+            all
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            documentary
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            comedy
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            horror
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            crime
+          </div>
+        </div>
+        <div
+          class="sc-fFubgz GKKPB"
+        >
+          <span
+            class="sc-bkzZxe jaAKHP"
+          >
+            SORT BY
+          </span>
+          <div
+            class="sc-bqyKva hQfRUk"
+            data-testid="select"
+          >
+            RELEASE DATE
+            <div
+              class="sc-kstrdz btAvEE"
+              data-testid="dropdown"
+            >
+              <p
+                class="sc-hBEYos gVpjsD"
+                data-testid="RELEASE DATE"
+              >
+                RELEASE DATE
+              </p>
+              <p
+                class="sc-hBEYos bkOroX"
+                data-testid="RATING"
+              >
+                RATING
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-bBrOnJ bWfcun"
+      >
+        <span
+          class="sc-cOajty cBKLxO"
+        >
+          1
+        </span>
+        <span>
+          movies found
+        </span>
+      </div>
+      <div
+        class="sc-dOSReg cQgafQ"
+      >
+        <div
+          class="sc-gKsewC hYICKG"
+        >
+          <div
+            class="sc-fubCfw ddvqw"
+          >
+            <img
+              alt="poster"
+              class="sc-bdfBwQ dnPwTH"
+              height="16"
+              src="https://image.tmdb.org/t/p/w500/5wioUjzwr91fvq7ydunxK2CPSxi.jpg"
+              width="9"
+            />
+            <div
+              class="sc-iBPRYJ jRTCDY"
+              data-testid="menu"
+            >
+              <div
+                class="sc-gsTCUz fTRmhn"
+                data-testid="card-menu"
+              >
+                <div
+                  class="sc-dlfnbm cUkdsN"
+                />
+                <div
+                  class="sc-dlfnbm cUkdsN"
+                />
+                <div
+                  class="sc-dlfnbm cUkdsN"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-pFZIQ eGSZAr"
+          >
+            <div
+              class="sc-jrAGrp ezjpSe"
+            >
+              <h2
+                class="sc-kEjbxe fgJrSU"
+              >
+                Noah
+              </h2>
+              <p
+                class="sc-iqHYGH fluhvY"
+              >
+                Drama & Adventure
+              </p>
+            </div>
+            <div
+              class="sc-crrsfI hMBNEf"
+            >
+              <span
+                class="sc-dQppl kCIcGn"
+              >
+                2014
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-iUuytg jPVyeg"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MovieList Should renders correctly with loading 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-cTkwdZ cNBPuM"
+  >
+    <div
+      class="sc-jNMdTA crVjYD"
+    >
+      <div
+        class="sc-fodVxV hwSNEM"
+      >
+        <div
+          class="sc-idOhPF hdHMhW"
+        >
+          <div
+            class="sc-dIUggk chpKHI"
+          >
+            all
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            documentary
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            comedy
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            horror
+          </div>
+          <div
+            class="sc-dIUggk jMzsoA"
+          >
+            crime
+          </div>
+        </div>
+        <div
+          class="sc-fFubgz GKKPB"
+        >
+          <span
+            class="sc-bkzZxe jaAKHP"
+          >
+            SORT BY
+          </span>
+          <div
+            class="sc-bqyKva hQfRUk"
+            data-testid="select"
+          >
+            RELEASE DATE
+            <div
+              class="sc-kstrdz btAvEE"
+              data-testid="dropdown"
+            >
+              <p
+                class="sc-hBEYos gVpjsD"
+                data-testid="RELEASE DATE"
+              >
+                RELEASE DATE
+              </p>
+              <p
+                class="sc-hBEYos bkOroX"
+                data-testid="RATING"
+              >
+                RATING
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-bBrOnJ bWfcun"
+      >
+        <span
+          class="sc-cOajty cBKLxO"
+        >
+          0
+        </span>
+        <span>
+          movies found
+        </span>
+      </div>
+      <div
+        class="sc-dOSReg cQgafQ"
+      />
+      <div
+        class="sc-iBaPrD hflCgt"
+      >
+        <div
+          class="sc-eggNIi jOlKOh"
+        />
+        <div
+          class="sc-eggNIi eIqgVF"
+        />
+        <div
+          class="sc-eggNIi bNBSsq"
+        />
+        <div
+          class="sc-eggNIi iilJPs"
+        />
+        <div
+          class="sc-eggNIi iluHit"
+        />
+        <div
+          class="sc-eggNIi jfaArX"
+        />
+        <div
+          class="sc-eggNIi lpnRFp"
+        />
+        <div
+          class="sc-eggNIi kQKigi"
+        />
+        <div
+          class="sc-eggNIi eNVXYk"
+        />
+        <div
+          class="sc-eggNIi ePWPEy"
+        />
+        <div
+          class="sc-eggNIi fHYCLb"
+        />
+        <div
+          class="sc-eggNIi gshesS"
+        />
+      </div>
+    </div>
+    <div
+      class="sc-iUuytg jPVyeg"
+    />
+  </div>
+</DocumentFragment>
+`;

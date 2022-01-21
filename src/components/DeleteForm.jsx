@@ -25,7 +25,7 @@ export const DeleteForm = ({ id, onClose }) => {
     onClose();
   };
   return (
-    <Modal title='DELETE FORM' onClose={onClose}>
+    <Modal title='DELETE MOVIE' onClose={onClose}>
       <Container>
         <Confirmation>Are you sure you want delete this movie?</Confirmation>
         <Button confirm align='right' onClick={onDelete}>

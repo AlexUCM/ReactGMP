@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import poster from '../images/fallback-image.jpg';
@@ -11,12 +11,16 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-export const FallbackImage = ({ src = poster, onClick }) => {
+export const FallbackImage = ({ src = poster, onClick, id }) => {
   const [error, setError] = useState(false);
 
   const onImageError = () => setError(true);
 
   const imgSrc = !error ? src : poster;
+
+  useEffect(() => {
+    if (id) setError(false);
+  }, [id]);
 
   return (
     <Image
@@ -32,5 +36,6 @@ export const FallbackImage = ({ src = poster, onClick }) => {
 
 FallbackImage.propTypes = {
   src: PropTypes.string,
+  id: PropTypes.number,
   onClick: PropTypes.func,
 };
